@@ -1,3 +1,5 @@
+//Ignore this file, the relevant code is in index.js
+
 // var fs = require('fs');
 var wordList = require('wordlist-english'); //This library contains words arranged according to the word length
 
