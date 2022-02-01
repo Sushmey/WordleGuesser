@@ -1,0 +1,53 @@
+.boxy{
+	height:300px;
+	width: 70vw;
+	overflow-y:scroll;
+}
+
+.hiddenBox{
+	height:20vw;
+	display:block;
+}
+
+.dotted{
+	border-style:dotted;
+}
+
+.texty{
+	color:mediumspringgreen;
+}
+
+.btnColour{
+	background-color: forestgreen;
+}
+.btnColour:hover{
+	background-color:palegreen;
+}
+.btnColour:active
+{
+	background-color:mediumseagreen;
+}
+
+.fixMe{
+	position: fixed; 
+	left:0; 
+	bottom: 50;
+	width: 100%;
+}
+
+@media(min-width: 576px){
+	.forced{
+	margin-left:5%;
+	margin-right:5%;
+	}
+	.pushDown{
+	margin-top:25vh;
+	}
+}
+
+
+@media(min-width: 768px){
+	.forced{
+	margin-left:30%;
+	margin-right:29%;}
+}
