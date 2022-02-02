@@ -1,14 +1,7 @@
-// var fs = require('fs');
 var wordList = require('word-list-json'); //This library contains words arranged according to the word length
 
-var letterArray = wordList.map((word)=>{return word.split('')}); //Converting the wordList string array to an array of characters of each word
-// console.log(letterArray);
-const wordsOfFive = letterArray.filter((letter)=>{return letter.length==5}); //Filtering the array to keep only words of length 5
-//console.log(wordsOfFive);
-
-//var guess = ['t','h','i'];
-
-// export { wordsOfFive };
+var letterArray = wordList.filter((letter)=>{return letter.length==5}); //Filtering the array to keep only words of length 5
+const wordsOfFive = letterArray.map((word)=>{return word.split('')}); //Converting the letterArray string array to an array of characters of each word
 const isSubset= (word, guess)=>{
   // returns true if guess is a subset of word
   return guess.every((element)=>{
@@ -41,7 +34,6 @@ const suggestionsDiv = document.getElementById("suggestions"); //Getting the div
 document.guessFunction = ()=>{
 	suggestionsDiv.innerHTML = ""; //Clearing the div
 	document.getElementById("footer").classList.remove("fixMe"); //Cosmetic
-	// document.getElementById("deleteMe#2").classList.remove("hiddenBox"); //Cosmetic
 	var ctr=0;//Counter to keep track of how many words are displayed so far
 	var exclude = document.getElementById("exclude").value.toLowerCase().trim();
 	var guessedWord = document.getElementById("guess").value.toLowerCase().trim(); //Taking input from the html
@@ -54,16 +46,12 @@ document.guessFunction = ()=>{
 	{
 		var guess = guessedWord.split(''); //Splitting the word to char array
 		var excluded =exclude.length==0?['/']:exclude.split(''); //If empty then adding an array that will never be a subset
-		//var excluded = exclude.split('');
 		for(let i =0;i<wordsOfFive.length;i++)
 		{
 			if(isSubset(wordsOfFive[i], guess) && !containsLetter(wordsOfFive[i],excluded)) 
 			{
 					suggestionsDiv.append(document.createTextNode(wordsOfFive[i].join('')+"\n"));
 					ctr++; //Counter to keep track of how many words are displayed so far
-					//console.log(isSubset(wordsOfFive[i],excluded));
-					//console.log(isSubsetOrdered(wordsOfFive[i],guess)?wordsOfFive[i]:isSubsetOrdered(wordsOfFive[i],guess));
-					//console.log(wordsOfFive[i]);
 			}
 		}
 		if(ctr==0) //To show something when there are no words found

@@ -9,6 +9,11 @@
 	display:block;
 }
 
+.banner{
+	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
 .dotted{
 	border-style:dotted;
 }
@@ -26,6 +31,10 @@
 .btnColour:active
 {
 	background-color:mediumseagreen;
+}
+ 
+.glyphiconWhite, .glyphiconWhite a {
+	color:#fff;
 }
 
 .fixMe{
